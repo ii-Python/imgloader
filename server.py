@@ -2,6 +2,7 @@
 # ROBLOX Image Loader v2
 
 # Modules
+import os
 import zlib
 import requests
 from PIL import Image
@@ -55,4 +56,4 @@ def process_image() -> None:
     return image_data
 
 # Launch server
-app.run(host = "0.0.0.0", port = 8080)
+app.run(host = os.getenv("HOST", "0.0.0.0"), port = os.getenv("PORT", 8080))
