@@ -6,14 +6,13 @@ import zlib
 import requests
 from PIL import Image
 from io import BytesIO
-from typing import Union
 from flask import Flask, abort, request, render_template
 
 # Initialization
 app = Flask("Image Loader v2")
 
 # Image loader
-def load_image(url: str) -> Union[bytes, None]:
+def load_image(url: str) -> bytes | None:
     try:
         req = requests.get(url, timeout = 2)
         if req.status_code != 200:
